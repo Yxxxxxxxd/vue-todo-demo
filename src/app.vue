@@ -41,5 +41,5 @@ export default {
     bottom 0
     background-color #999
     z-index -1
-    opacity .2
+    opacity .9
 </style>
