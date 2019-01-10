@@ -33,6 +33,13 @@ if (isDev) {
           use: [
             'vue-style-loader',
             'css-loader',
+            /* {
+               loader:'css-loader',
+               options:{
+                 module:true,
+                 localIdentName: isDev ? '[path]-[name]-[hash:base64:5]' : '[hash:base64:5]',   //css名称加密 路径-名称-密文 线上可以直接去掉路径和名称
+               }
+             },*/
             {
               loader: 'postcss-loader',
               options: {
