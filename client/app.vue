@@ -6,7 +6,6 @@
     <Footer></Footer>
   </div>
 </template>
-
 <script>
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
@@ -19,7 +18,6 @@ export default {
   }
 }
 </script>
-
 <style lang="stylus" scoped>
 #app{
   position absolute

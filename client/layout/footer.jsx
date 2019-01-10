@@ -1,11 +1,11 @@
 import '../assets/style/footer.styl'
 export default {
-  data() {
+  data () {
     return {
       author: 'Ioodu'
     }
   },
-  render() {
+  render () {
     return (
       <footer id="footer">
         <span>Written by {this.author}</span>
