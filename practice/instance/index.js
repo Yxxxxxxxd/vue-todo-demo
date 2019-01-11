@@ -21,7 +21,7 @@ app.$mount('#root')
 // let i = 0
 setInterval(() => {
   // i++
-  app.text += 1
+  // app.text += 1
   // app.obj.a = i
   // app.$set(app.obj, 'a', i)
   // app.$delete
