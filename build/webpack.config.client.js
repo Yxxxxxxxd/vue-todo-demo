@@ -20,14 +20,14 @@ const devServer = {
   overlay: {
     errors: true
   },
-  hot: true,
+  hot: true
 }
 let config
 if (isDev) {
-  config = merge(baseConfig,{
-    devtool : '#cheap-module-eval-source-map',
-    module:{
-      rules:[
+  config = merge(baseConfig, {
+    devtool: '#cheap-module-eval-source-map',
+    module: {
+      rules: [
         {
           test: /\.styl$/,
           use: [
@@ -51,16 +51,16 @@ if (isDev) {
     ])
   })
 } else {
-  config = merge(baseConfig,{
-    entry:{
+  config = merge(baseConfig, {
+    entry: {
       app: path.join(__dirname, '../client/index.js'),
       vendor: ['vue']
     },
-    output:{
-      filename:'[name].[chunkhash:8].js'
+    output: {
+      filename: '[name].[chunkhash:8].js'
     },
-    module:{
-      rules:[
+    module: {
+      rules: [
         {
           test: /\.styl$/,
           use: ExtractPlugin.extract({
