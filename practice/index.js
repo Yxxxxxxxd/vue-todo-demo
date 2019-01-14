@@ -2,4 +2,5 @@
 // import './lifecycle'
 // import './data-binging'
 // import './computed'
-import './directive'
+// import './directive'
+import './define'
