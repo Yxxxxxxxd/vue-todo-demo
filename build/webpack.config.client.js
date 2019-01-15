@@ -24,6 +24,7 @@ const devServer = {
   },
   hot: true,
   historyApiFallback: {
+    // index: '/index.html'
     disableDotRule: true
   }
 }
