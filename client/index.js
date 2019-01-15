@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import App from './app.vue'
 import VueRouter from 'vue-router'
+import App from './app.vue'
 
 import './assets/style/global.styl'
 import createRouter from './config/router'

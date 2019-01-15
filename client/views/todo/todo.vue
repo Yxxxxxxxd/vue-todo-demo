@@ -1,20 +1,20 @@
 <template>
   <section class="rel-app">
-    <input 
+    <input
       type="text"
       class="add-input"
       autofocus="autofocus"
       placeholder="What's to do next? "
       @keyup.enter="addTodo"
     >
-    <item 
+    <item
       :todo="todo"
       v-for="todo in filterTodos"
       :key="todo.id"
       @del="deleteTodo"
-    />    
-    <Tabs 
-      :filter="filter" 
+    />
+    <Tabs
+      :filter="filter"
       :todos="todos"
       @toggle="toggleFilter"
       @clearAll="clearAllcompleted"
@@ -64,6 +64,9 @@ export default {
     clearAllcompleted() {
       this.todos = this.todos.filter(todo => !todo.completed)
     }
+  },
+  mounted(){
+    console.log(112233)
   }
 }
 </script>
@@ -71,17 +74,17 @@ export default {
 <style lang="stylus" scoped>
 .rel-app
   width 600px
-  margin 0 auto 
+  margin 0 auto
   box-shadow 0 0 5px #666
 .add-input
   position relative
   width 100%
   font-size 24px
-  font-family inherit 
-  font-weight inherit 
+  font-family inherit
+  font-weight inherit
   line-height 1.4em
-  outline none 
-  color inherit 
+  outline none
+  color inherit
   padding 6px
   border 1px solid #999
   box-shadow inset 0 -1px 5px 0 rgba(0, 0, 0, .5)

@@ -18,11 +18,14 @@ const defaultPlugins = [
 ]
 const devServer = {
   port: 8882,
-  host: '127.0.0.1',
+  host: '192.168.83.141',
   overlay: {
     errors: true
   },
-  hot: true
+  hot: true,
+  historyApiFallback: {
+    disableDotRule: true
+  }
 }
 let config
 if (isDev) {
