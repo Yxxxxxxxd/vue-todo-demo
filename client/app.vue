@@ -2,7 +2,8 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <router-link to="/app/123">app</router-link>
+    <p>{{count}}</p>
+    <router-link to="/app">app</router-link>
     <router-link to="/login">login</router-link>
     <!--<todo></todo>-->
     <transition name="fade">
@@ -22,7 +23,16 @@ export default {
 //    Todo,
   },
   mounted(){
-    console.log(this.$route)
+    console.log(this.$store)
+    let i=1
+    setInterval(()=>{
+      this.$store.commit('updateCount', i++)
+    },1000)
+  },
+  computed: {
+    count (){
+      return this.$store.state.count
+    }
   }
 }
 </script>

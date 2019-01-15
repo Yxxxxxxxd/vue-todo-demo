@@ -30,7 +30,7 @@ export default {
   beforeRouteEnter (to,from,next){
     console.log("todo before enter ", this)
     next(vm => {
-      console.log('after enter this.id ',vm.id)
+//      console.log('after enter this.id ',vm.id)
     })
   },
   beforeRouteUpdate (to,from,next){
@@ -39,9 +39,10 @@ export default {
   },
   beforeRouteLeave (to,from,next){
     console.log("todo before Leave ")
-    if( global.confirm('are you sure?')){
+    next()
+   /* if( global.confirm('are you sure?')){
       next()
-    }
+    }*/
   },
   props: ['id'],
   data() {
