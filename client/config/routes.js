@@ -1,5 +1,5 @@
-import Todo from '../views/todo/todo.vue'
-import Logins from '../views/login/login.vue'
+// import Todo from '../views/todo/todo.vue'
+// import Logins from '../views/login/login.vue'
 
 export default [
   {
@@ -7,15 +7,17 @@ export default [
     redirect: '/app'
   },
   {
-    // path: '/app/:id',
-    path: '/app',
+    path: '/app/:id',
+    // path: '/app',
     props: true,
-    component: Todo,
+    component: () => import('../views/todo/todo.vue'),
     name: 'app',
     meta: {
       title: 'this is app',
       description: 'asdfg'
-    }/*,
+    }
+
+    /*,
     children: [
       {
         path: 'test',
@@ -25,6 +27,6 @@ export default [
   },
   {
     path: '/login',
-    component: Logins
+    component: () => import('../views/login/login.vue')
   }
 ]
