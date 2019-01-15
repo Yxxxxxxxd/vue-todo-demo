@@ -35,6 +35,7 @@ export default {
       num: 5,
       time: 2000
     })
+//    this['a/updateText']('123')
 //    setInterval(()=>{
 //      this.updateCount('updateCount', i++)
 //    },1000)
@@ -47,12 +48,15 @@ export default {
 //    ...mapState(['count']),
     ...mapState({
 //      counter: 'count'
-      counter: (state) => state.count
+      counter: (state) => state.count,
     }),
 //    count (){
 //      return this.$store.state.count
 //    },
-    ...mapGetters(['fullName']),
+    ...mapGetters({
+      'fullName': 'fullName',
+      'textPlus': 'textPlus'
+    }),
 //    fullName(){
 //      return this.$store.getters.fullName
 //    }
