@@ -2,7 +2,7 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <p>{{count}}</p>
+    <p>{{fullName}} {{counter}}</p>
     <router-link to="/app">app</router-link>
     <router-link to="/login">login</router-link>
     <!--<todo></todo>-->
@@ -13,6 +13,10 @@
   </div>
 </template>
 <script>
+  import {
+    mapState,
+    mapGetters
+  } from 'vuex'
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
 //import Todo from './views/todo/todo.vue'
@@ -30,9 +34,18 @@ export default {
     },1000)
   },
   computed: {
-    count (){
-      return this.$store.state.count
-    }
+//    ...mapState(['count']),
+    ...mapState({
+//      counter: 'count'
+      counter: (state) => state.count
+    }),
+//    count (){
+//      return this.$store.state.count
+//    },
+    ...mapGetters(['fullName']),
+//    fullName(){
+//      return this.$store.getters.fullName
+//    }
   }
 }
 </script>
