@@ -33,9 +33,10 @@ const notify = (options) => {
       ...rest
     },
     data: {
-      autoClose: autoClose === undefined ? 30 : autoClose
+      autoClose: autoClose === undefined ? 3000 : autoClose
     }
   })
+
   const id = `notification_${seed++}`
   instance.id = id
   instance.vm = instance.$mount()
