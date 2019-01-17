@@ -13,7 +13,12 @@
     },
     computed:{
       active () {
-        return false
+        return this.$parent.value === this.index
+      }
+    },
+    methods: {
+      handleClick () {
+        this.$parent.onChange(this.index)
       }
     },
     render () {

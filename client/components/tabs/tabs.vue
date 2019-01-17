@@ -13,9 +13,13 @@
           <ul class='tabs-header'>
             {this.$slots.default}
           </ul>
-          <tab-container panes={this.panes}></tab-container>
         </div>
       )
+    },
+    methods: {
+      onChange(index) {
+        this.$emit('change', index)
+      }
     }
   }
 </script>
