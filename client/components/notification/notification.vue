@@ -1,9 +1,11 @@
 <template>
-  <transition name="fade">
+  <transition name="fade" @after-leave="afterLeave" @after-enter="afterEnter">
     <div
       class="notification"
       :style="style"
       v-show="visible"
+      @mouseenter="clearTimer"
+      @mouseleave="createTimer"
     >
       <span class="content">{{content}}</span>
       <a class="btn" @click="handleClose">{{btn}}</a>
@@ -12,8 +14,8 @@
 </template>
 
 <script>
-  export default{
-    name:'Notification',
+  export default {
+    name: 'Notification',
     props: {
       content: {
         type: String,
@@ -24,21 +26,27 @@
         default: '关闭'
       }
     },
-    data(){
+    data () {
       return {
         visible: true
       }
     },
     computed: {
-      style(){
+      style () {
         return {}
       }
     },
     methods: {
-      handleClose(e){
+      handleClose (e) {
         e.preventDefault()
         this.$emit('close')
-      }
+      },
+      afterLeave () {
+        this.$emit('closed')
+      },
+      afterEnter () {},
+      clearTimer () {},
+      createTimer () {}
     }
   }
 </script>
@@ -62,3 +70,5 @@
     margin-left auto
     cursor pointer
 </style>
+
+

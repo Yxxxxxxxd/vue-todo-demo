@@ -16,6 +16,7 @@ export default {
   },
   methods: {
     createTimer () {
+      console.log(this.autoClose)
       if (this.autoClose) {
         this.timer = setTimeout(() => {
           this.visible = false
@@ -26,15 +27,20 @@ export default {
       if (this.timer) {
         clearTimeout(this.timer)
       }
+    },
+    afterEnter () {
+      this.height = this.$el.offsetHeight
     }
   },
-  beforeDstory () {
+  beforeDestory () {
     this.clearTimer()
   },
   data () {
     return {
       verticalOffset: 0,
-      autoClose: 3000
+      autoClose: 3000,
+      height: 0,
+      visible: false
     }
   }
 }
