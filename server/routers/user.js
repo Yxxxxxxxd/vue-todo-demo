@@ -3,7 +3,7 @@ const userRouter = new Router({ prefix: '/user' })
 
 userRouter.post('/login', async ctx => {
   const user = ctx.request.body
-  if (user.userName === 'Yxd' && user.userPassWord === '111111') {
+  if (user.username === 'Yxd' && user.password === '111111') {
     ctx.session.user = {
       userName: 'Yxd'
     }
