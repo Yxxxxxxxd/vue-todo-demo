@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:client": "cross-env NODE_ENV=roduction webpack --config build/webpack.config.client.js",
-    "build:server":"cross-env NODE_ENV=production webpack --config build/webpack.config.server.js",
+    "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.config.server.js",
     "build": "npm run clean && npm run build:client && npm run build:server",
     "practice": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.practice.js",
     "clean": "rimraf public && rimraf server-build",
@@ -35,6 +35,7 @@
     "koa-router": "^7.4.0",
     "koa-send": "^5.0.0",
     "memory-fs": "^0.4.1",
+    "sha1": "^1.1.1",
     "vue": "^2.5.13",
     "vue-meta": "^1.4.3",
     "vue-router": "^3.0.2",
