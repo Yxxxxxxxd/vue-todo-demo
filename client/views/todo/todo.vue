@@ -26,10 +26,13 @@
   </section>
 </template>
 <script>
+import {
+  mapState,
+  mapActions
+}from 'vuex'
 import Item from './items.vue'
 import Helper from './helper.vue'
 
-let id = 0
 export default {
   metaInfo:{
     title: 'The Todo App'
@@ -54,7 +57,6 @@ export default {
   props: ['id'],
   data() {
     return {
-      todos: [],
       filter: 'all',
       states: ['all', 'active', 'completed']
     }
@@ -64,6 +66,7 @@ export default {
     Helper,
   },
   computed: {
+    ...mapState(['todos']),
     filterTodos() {
       if (this.filter === 'all') {
         return this.todos
@@ -73,14 +76,15 @@ export default {
     }
   },
   methods: {
-    addTodo(e){
-      this.todos.unshift({
-        id: id++,
-        content: e.target.value.trim(),
-        completed: false
-      })
-      e.target.value = ''
-    },
+    ...mapActions(['fetchTodos']),
+//    addTodo(e){
+//      this.todos.unshift({
+//        id: id++,
+//        content: e.target.value.trim(),
+//        completed: false
+//      })
+//      e.target.value = ''
+//    },
     deleteTodo(id) {
       this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     },
@@ -92,6 +96,7 @@ export default {
     }
   },
   mounted(){
+    this.fetchTodos()
   }
 }
 </script>

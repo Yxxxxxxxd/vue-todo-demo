@@ -29,6 +29,10 @@ const devServer = {
   historyApiFallback: {
     // index: '/index.html'
     disableDotRule: true
+  },
+  proxy: {
+    '/api': 'http://192.168.83.141:3333',
+    '/user': 'http://192.168.83.141:3333'
   }
 }
 let config
