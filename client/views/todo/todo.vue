@@ -1,10 +1,8 @@
 <template>
   <section class="rel-app">
     <div class="tab-container">
-      <tabs :value="tabValue" @change="habdleChangeTab">
-        <tab label="tab1" index="1"/>
-        <tab index="2"><span slot="label" style="color:red;" >tab2</span></tab>
-        <tab label="tab3" index="3"/>
+      <tabs :value="filter" @change="habdleChangeTab">
+        <tab :label="tab" :index="tab" v-for="tab in states" :key="tab"></tab>
       </tabs>
     </div>
     <input
@@ -20,17 +18,16 @@
       :key="todo.id"
       @del="deleteTodo"
     />
-    <Helper
+    <helper
       :filter="filter"
       :todos="todos"
-      @toggle="toggleFilter"
       @clearAll="clearAllcompleted"
     />
   </section>
 </template>
 <script>
 import Item from './items.vue'
-import Helper from './tabs.vue'
+import Helper from './helper.vue'
 
 let id = 0
 export default {
@@ -59,7 +56,7 @@ export default {
     return {
       todos: [],
       filter: 'all',
-      tabValue: '1'
+      states: ['all', 'active', 'completed']
     }
   },
   components: {
@@ -87,45 +84,46 @@ export default {
     deleteTodo(id) {
       this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     },
-    toggleFilter(state) {
-      this.filter = state
-    },
     clearAllcompleted() {
       this.todos = this.todos.filter(todo => !todo.completed)
     },
     habdleChangeTab(value) {
-      this.tabValue = value
+      this.filter = value
     }
   },
   mounted(){
-    setTimeout(() => {
-      this.tabValue = '2'
-    })
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-.rel-app
-  width 600px
-  margin 0 auto
-  box-shadow 0 0 5px #666
-.add-input
-  position relative
-  width 100%
-  font-size 24px
-  font-family inherit
-  font-weight inherit
-  line-height 1.4em
-  outline none
-  color inherit
-  padding 6px
-  border 1px solid #999
-  box-shadow inset 0 -1px 5px 0 rgba(0, 0, 0, .5)
-  box-sizing border-box
-  padding 16px 16px 16px 60px
-.tab-container
-  background-color #fff
-  padding 0 15px
+  .real-app{
+    width 600px
+    margin 0 auto
+    box-shadow 0 0 5px #666
+  }
+  .add-input{
+    position: relative;
+    margin: 0;
+    width: 100%;
+    font-size: 24px;
+    font-family: inherit;
+    font-weight: inherit;
+    line-height: 1.4em;
+    border: 0;
+    outline: none;
+    color: inherit;
+    padding: 6px;
+    border: 1px solid #999;
+    box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    font-smoothing: antialiased;
+    padding: 16px 16px 16px 60px;
+    border: none;
+    box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+  }
+  .tab-container
+    background-color #fff
+    padding 0 15px
 </style>
 
