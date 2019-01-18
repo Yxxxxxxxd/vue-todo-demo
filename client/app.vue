@@ -2,25 +2,25 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <p>{{fullName}} {{counter}}</p>
+    <!--<p>{{fullName}} {{counter}}</p>-->
     <!--<router-link to="/app">app</router-link>-->
     <!--<router-link to="/login">login</router-link>-->
     <!--<todo></todo>-->
     <transition name="fade">
       <router-view />
     </transition>
-    <button @click="notify">click me</button>
+    <!--<button @click="notify">click me</button>-->
     <!--<notification content="test notify" />-->
     <Footer></Footer>
   </div>
 </template>
 <script>
-  import {
-    mapState,
-    mapGetters,
-    mapActions,
-    mapMutations
-  } from 'vuex'
+//  import {
+//    mapState,
+//    mapGetters,
+//    mapActions,
+//    mapMutations
+//  } from 'vuex'
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
 //import Todo from './views/todo/todo.vue'
@@ -47,8 +47,8 @@ export default {
 //    },1000)
   },
   methods: {
-    ...mapActions(['updateCountAsync']),
-    ...mapMutations(['updateCount']),
+//    ...mapActions(['updateCountAsync']),
+//    ...mapMutations(['updateCount']),
     notify(){
       this.$notify({
         content: 'test $notify',
@@ -58,17 +58,17 @@ export default {
   },
   computed: {
 //    ...mapState(['count']),
-    ...mapState({
-//      counter: 'count'
-      counter: (state) => state.count,
-    }),
+//    ...mapState({
+////      counter: 'count'
+//      counter: (state) => state.count,
+//    }),
 //    count (){
 //      return this.$store.state.count
 //    },
-    ...mapGetters({
-      'fullName': 'fullName',
-      'textPlus': 'textPlus'
-    }),
+//    ...mapGetters({
+//      'fullName': 'fullName',
+//      'textPlus': 'textPlus'
+//    }),
 //    fullName(){
 //      return this.$store.getters.fullName
 //    }
@@ -76,23 +76,35 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-#app{
-  position absolute
-  left 0
-  right 0
-  top 0
-  bottom 0
-}
-#cover{
-  position absolute
-  left 0
-  top 0
-  right 0
-  bottom 0
-  background-color #999
-  opacity .9
-  z-index -1
-}
+  #app{
+    position absolute
+    left 0
+    right 0
+    top 0
+    bottom 0
+  }
+  #cover{
+    position absolute
+    left 0
+    top 0
+    right 0
+    bottom 0
+    background-color #999
+    opacity .9
+    z-index -1
+  }
+  #loading{
+    position fixed
+    top 0
+    right 0
+    bottom 0
+    left 0
+    background-color rgba(255,255,255,.3)
+    z-index 99
+    display flex
+    align-items center
+    justify-content center
+  }
 </style>
 
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="rel-app">
+  <section class="real-app">
     <div class="tab-container">
       <tabs :value="filter" @change="habdleChangeTab">
         <tab :label="tab" :index="tab" v-for="tab in states" :key="tab"></tab>
