@@ -22,7 +22,7 @@
     <helper
       :filter="filter"
       :todos="todos"
-      @clearAll="clearAllcompleted"
+      @clearAllCompleted="clearAllCompleted"
     />
   </section>
 </template>
@@ -110,7 +110,7 @@ export default {
         })
       })
     },
-    clearAllcompleted() {
+    clearAllCompleted() {
 //      this.todos = this.todos.filter(todo => !todo.completed)
       this.deleteAllTodo()
     },

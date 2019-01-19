@@ -36,7 +36,7 @@ export default {
         handleError(err)
       })
   },
-  deleteTodo ({ commit }, id ) {
+  deleteTodo ({ commit }, id) {
     model.deleteTodo(id)
       .then(data => {
         commit('deleteTodo', { id })
@@ -51,7 +51,7 @@ export default {
   deleteAllTodo ({ commit, state }) {
     const ids = state.todos.filter(t => t.completed).map(t => t.id)
     model.deleteAllTodo(ids)
-      .then(data => {
+      .then(() => {
         commit('deleteAllTodo')
         notify({
           content: '清理咯~'
