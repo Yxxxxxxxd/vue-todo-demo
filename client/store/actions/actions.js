@@ -19,26 +19,34 @@ export default {
     }, data.time)
   },
   fetchTodos ({ commit }) {
+    commit('startLoading')
     model.getAllTodos()
       .then(data => {
+        commit('endLoading')
         commit('fillTodos', data)
       })
       .catch(err => {
         handleError(err)
+        commit('endLoading')
       })
   },
   updateTodo ({ commit }, { id, todo }) {
+    commit('startLoading')
     model.updateTodo(id, todo)
       .then(data => {
+        commit('endLoading')
         commit('updateTodo', { id, todo: data })
       })
       .catch(err => {
         handleError(err)
+        commit('endLoading')
       })
   },
   deleteTodo ({ commit }, id) {
+    commit('startLoading')
     model.deleteTodo(id)
       .then(data => {
+        commit('endLoading')
         commit('deleteTodo', { id })
         notify({
           content: '少了一件事哟~'
@@ -46,12 +54,15 @@ export default {
       })
       .catch(err => {
         handleError(err)
+        commit('endLoading')
       })
   },
   deleteAllTodo ({ commit, state }) {
     const ids = state.todos.filter(t => t.completed).map(t => t.id)
+    commit('startLoading')
     model.deleteAllTodo(ids)
       .then(() => {
+        commit('endLoading')
         commit('deleteAllTodo')
         notify({
           content: '清理咯~'
@@ -59,11 +70,14 @@ export default {
       })
       .catch(err => {
         handleError(err)
+        commit('endLoading')
       })
   },
   addTodo ({ commit }, todo) {
+    commit('startLoading')
     model.createTodo(todo)
       .then(data => {
+        commit('endLoading')
         commit('addTodo', data)
         notify({
           content: '你又多了一件事要做'
@@ -71,6 +85,7 @@ export default {
       })
       .catch(err => {
         handleError(err)
+        commit('endLoading')
       })
   },
   login ({ commit }, { username, password }) {

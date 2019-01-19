@@ -1,12 +1,15 @@
 <template>
   <div id="app">
     <div id="cover"></div>
+    <div id="loading" v-show="loading">
+      <loading></loading>
+    </div>
     <Header></Header>
     <!--<p>{{fullName}} {{counter}}</p>-->
     <!--<router-link to="/app">app</router-link>-->
     <!--<router-link to="/login">login</router-link>-->
     <!--<todo></todo>-->
-    <transition name="fade">
+    <transition name="fade" mode="out-in">
       <router-view />
     </transition>
     <!--<button @click="notify">click me</button>-->
@@ -15,14 +18,15 @@
   </div>
 </template>
 <script>
-//  import {
-//    mapState,
+  import {
+    mapState
 //    mapGetters,
 //    mapActions,
 //    mapMutations
-//  } from 'vuex'
+  } from 'vuex'
 import Header from './layout/header.vue'
 import Footer from './layout/footer.jsx'
+import Loading from './components/loading/loading.vue'
 //import Todo from './views/todo/todo.vue'
 export default {
   metaInfo: {
@@ -31,6 +35,7 @@ export default {
   components: {
     Header,
     Footer,
+    Loading,
 //    Todo,
   },
   mounted(){
@@ -57,6 +62,7 @@ export default {
     }
   },
   computed: {
+    ...mapState(['loading'])
 //    ...mapState(['count']),
 //    ...mapState({
 ////      counter: 'count'
