@@ -120,6 +120,9 @@ export default {
   },
   mounted(){
     this.fetchTodos()
+  },
+  asyncData ({store}) {
+    return store.dispatch('fetchTodos')
   }
 }
 </script>
