@@ -19,6 +19,7 @@ export default context => {
         if (Component.asyncData) {
           return Component.asyncData({
             route: router.currentRoute,
+            router,
             store
           })
         }
@@ -26,6 +27,7 @@ export default context => {
         console.log(data)
         context.meta = app.$meta()
         context.state = store.state
+        context.router = router
         resolve(app)
       })
     })
