@@ -11,6 +11,7 @@ export default [
     path: '/app',
     props: true,
     component: () => import('../views/todo/todo.vue'),
+    // component: Todo,
     name: 'app',
     meta: {
       title: 'this is app',
@@ -28,5 +29,6 @@ export default [
   {
     path: '/login',
     component: () => import('../views/login/login.vue')
+    // component: Logins
   }
 ]
