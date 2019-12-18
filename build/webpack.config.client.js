@@ -19,7 +19,7 @@ const defaultPlugins = [
   new VueClientPlugin()
 ]
 const devServer = {
-  port: 8882,
+  port: 8885,
   host: '192.168.83.141',
   overlay: {
     errors: true
